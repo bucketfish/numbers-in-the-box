@@ -1,3 +1,45 @@
+// https://stackoverflow.com/questions/424292/seedable-javascript-random-number-generator
+function RNG(seed) {
+  // LCG using GCC's constants
+  this.m = 0x80000000; // 2**31;
+  this.a = 1103515245;
+  this.c = 12345;
+
+  this.state = seed ? seed : Math.floor(Math.random() * (this.m - 1));
+}
+RNG.prototype.nextInt = function() {
+  this.state = (this.a * this.state + this.c) % this.m;
+  return this.state;
+}
+RNG.prototype.nextFloat = function() {
+  // returns in range [0,1]
+  return this.nextInt() / (this.m - 1);
+}
+RNG.prototype.nextRange = function(start, end) {
+  // returns in range [start, end): including start, excluding end
+  // can't modulu nextInt because of weak randomness in lower bits
+  var rangeSize = end - start;
+  var randomUnder1 = this.nextInt() / this.m;
+  return start + Math.floor(randomUnder1 * rangeSize);
+}
+RNG.prototype.choice = function(array) {
+  return array[this.nextRange(0, array.length)];
+}
+
+/* ^ rng functions */
+
+function choose(choices) {
+  var index = Math.floor(Math.random() * choices.length);
+  return choices[index];
+}
+
+function intToChar(int) {
+  const code = 'a'.charCodeAt(0);
+  return String.fromCharCode(code + int);
+}
+
+
+
 class Piece{
 	//initialise
 	constructor(id, width, height){
@@ -9,16 +51,14 @@ class Piece{
 
 }
 
-const splits = [
-  {
-    "count": 10,
-    "split":[[0, 0, 0, 1, 2],
-            [3, 3, 4, 1, 2],
-            [5, 6, 4, 1, 7],
-            [5, 6, 8, 8, 7],
-            [5, 6, 9, 9, 9]]
-  }
-  ]
+
+var cursplit = [
+  [null, null, null, null, null],
+  [null, null, null, null, null],
+  [null, null, null, null, null],
+  [null, null, null, null, null],
+  [null, null, null, null, null]
+]
 
 var rangen = [
   [1, 2, 3, 4, 5],
@@ -27,6 +67,74 @@ var rangen = [
   [4, 0, 2, 7, 4],
   [5, 9, 1, 4, 2]
 ]
+
+var choices = [[1, 3], [1, 3], [3, 1], [3, 1], [1, 3], [3, 1], [1, 2], [2, 1]];
+var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
+
+var today = new Date()
+var day = " " + today.getDate() + " " + today.getMonth() + " " + today.getFullYear()
+var rng = new RNG(day);
+
+var count = 0;
+for (var i = 0; i < 5; i++){
+	for (var j = 0; j < 5; j++){
+		if (cursplit[i][j] == null){
+			var finished = false;
+			var ori = choose(choices);
+			var ori_width = ori[0];
+			var ori_height = ori[1];
+
+			var testc = 0
+			while (i + ori_height > 5 || j + ori_width  > 5) {
+				ori = choose(choices);
+				ori_width = ori[0];
+				ori_height = ori[1];
+				testc ++;
+
+				if (testc > 10) {
+					ori = [1, 1];
+					ori_width = 1;
+					ori_height = 1;
+				}
+			}
+
+			for (var k = 0; k < ori_height; k++){
+				for (var l = 0; l < ori_width; l++){
+
+					if (cursplit[i+k][j+l] == null) cursplit[i+k][j+l] = count;
+					else {
+						k = 10; l = 10;
+					}
+				}
+			}
+
+		count ++;
+		}
+	}
+}
+
+
+for (var i = 0; i < 5; i++){
+	for (var j = 0; j < 5; j++){
+		rangen[i][j] = choose(nums);
+		if (rangen[j][i]) rangen[i][j] = rangen[j][i];
+	}
+}
+console.log(cursplit);
+console.log(rangen);
+
+// for (var i = 0; i < 10; i++)
+//   console.log(rng.nextRange(10, 50));
+//
+// var digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+// for (var i = 0; i < 10; i++)
+//   console.log(rng.choice(digits));
+
+
+
+
+
 
 // set up board
 var rows = 5;
@@ -72,7 +180,6 @@ for (var i = 0; i < cols; i++){
 
 // create pieces
 var pieces = [];
-var cursplit = splits[split]["split"]
 for (var i = 0; i < 5; i++){
   for (var j = 0; j < 5; j++){
     if (pieces[cursplit[i][j]]) {
@@ -102,11 +209,11 @@ for (var i = 0; i < 5; i++){
 
 
 
-for (var i = 0; i < splits[split]["count"]; i++){
+for (var i = 0; i < count; i++){
   var piece = document.createElement("div");
   piece.classList.add("drag");
   piece.classList.add("d"+pieces[i].height+pieces[i].width);
-  piece.id = i + "d" + pieces[i].height + pieces[i].width + pieces[i].values.join("")
+  piece.id = intToChar(i) + "d" + pieces[i].height + pieces[i].width + pieces[i].values.join("")
 
   for (var j = 0; j < pieces[i].values.length; j++){
     var box = document.createElement("div");
@@ -172,7 +279,6 @@ function setpiece(e) {
 
       }
 
-      console.log(board);
 
 
 

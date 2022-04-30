@@ -119,6 +119,13 @@ h1 {
   width: calc(5vw - 6px);
 }
 
+.d11 {
+  flex-flow: column;
+  height: calc(5vw - 6px);
+  width: calc(5vw - 6px);
+}
+
+
 .drag-box-square {
   box-sizing: border-box;
   height: calc(5vw - 12px);
