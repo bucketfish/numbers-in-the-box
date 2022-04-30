@@ -187,6 +187,10 @@ function setpiece(e) {
     var win = true;
     for (var i = 0; i < 5; i++){
       for (var j = 0; j < 5; j++){
+        if (board[i][j] == null) {
+          win = false;
+          return;
+        }
         if (board[i][j] != board[j][i]){
           win = false;
           return;
