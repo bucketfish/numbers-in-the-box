@@ -51,6 +51,7 @@ dragbox.addEventListener("mouseenter", mouseenter, false);
 var gamegrid = document.getElementById("game-grid");
 
 var boxarray = document.getElementsByClassName("drag");
+var titletext = document.getElementById("title");
 
 document.addEventListener("mousedown", setpiece);
 document.addEventListener("mouseup", setpiece);
@@ -99,7 +100,7 @@ for (var i = 0; i < 5; i++){
 }
 
 
-console.log(pieces);
+
 
 for (var i = 0; i < splits[split]["count"]; i++){
   var piece = document.createElement("div");
@@ -171,16 +172,32 @@ function setpiece(e) {
 
       }
 
+      console.log(board);
 
-    // check if win
 
-    
+
 
     }
     else {
       // in box
     }
     curpiece = null;
+
+    // check if win
+    var win = true;
+    for (var i = 0; i < 5; i++){
+      for (var j = 0; j < 5; j++){
+        if (board[i][j] != board[j][i]){
+          win = false;
+          return;
+        }
+      }
+    }
+
+    if (win) {
+      title.innerHTML = "you win!!!!! 🎉🎉"
+    }
+
   }
 }
 
