@@ -55,15 +55,17 @@ h1 {
   width: 25vw;
   display: flex;
   flex-wrap: wrap;
+  /* pointer-events: none; */
 }
 
 .single-grid {
-  z-index: 0;
+  z-index: 10;
   height: 5vw;
   width: 5vw;
   box-sizing: border-box;
   border: 3px solid var(--dark3);
   user-select: none;
+  /* pointer-events: none; */
 }
 
 
@@ -79,9 +81,11 @@ h1 {
 }
 
 .drag {
-  z-index: 10;
+  /* position: relative; z-index: 99999; */
+
+
   box-sizing: border-box;
-  border: 3px solid var(--tan);
+  border: 3px solid var(--blue);
   display: flex;
   flex-wrap: wrap;
 
@@ -92,20 +96,19 @@ h1 {
 }
 
 .d12 {
-  height: 5vw;
-  width: 10vw;
+  height: calc(5vw - 6px);
+  width: calc(10vw - 6px);
 }
 
 .d21 {
-  height: 10vw;
-  width: 5vw;
+  height: calc(10vw - 6px);
+  width: calc(5vw - 6px);
 }
 
 .drag-box-square {
-  height: calc(5vw - 3px);
-  width: calc(5vw - 3px);
+  height: calc(5vw - 6px);
+  width: calc(5vw - 6px);
   user-select: none;
-  /* border: 3px solid var(--tan); */
 }
 
 .drag-box-square p {

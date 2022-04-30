@@ -19,10 +19,8 @@ var gamegrid = document.getElementById("game-grid");
 
 var boxarray = document.getElementsByClassName("drag");
 
-for (var i = 0; i < boxarray.length; i++){
-  boxarray[i].addEventListener("mousedown", setpiece);
-  boxarray[i].addEventListener("mouseup", setpiece);
-}
+document.addEventListener("mousedown", setpiece);
+document.addEventListener("mouseup", setpiece);
 
 // create game board
 for (var i = 0; i < cols; i++){
@@ -104,7 +102,8 @@ function mouseenter(e) {
 
 	if (e.target.id == "drag-box"){
     movepiece(e.target);
-  } else if (row && col) {
+
+  } else if (e.target.id.substring(0, 1) == "s") {
     var pheight = curpiece.id.substring(2, 3);
     var pwidth = curpiece.id.substring(3, 4);
 
@@ -112,6 +111,7 @@ function mouseenter(e) {
 
     for (var i = 0; i < parseInt(pheight); i++){
       for (var j = 0; j < parseInt(pwidth); j++){
+        console.log(col, row);
         if (board[parseInt(col) + i][parseInt(row) + j] != null){
           canplace = false;
         }
