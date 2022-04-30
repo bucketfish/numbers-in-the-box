@@ -1,0 +1,109 @@
+:root {
+  --dark0: #211e20;
+  --dark1: #3e3c3d;
+  --dark2: #5a5a5a;
+  --dark3: #777877;
+  --dark4: #939595;
+  --dark5: #b0b3b2;
+  --dark6: #ccd1cf;
+
+  --blue: #555568;
+  --tan: #a0a08b;
+  --white: #e9efec;
+}
+
+body {
+  background-color: var(--dark5);
+}
+
+h1, h2, h3, h4, h5, h6, p, a, li {
+  color: var(--black);
+  font-family: Tahoma, sans-serif;
+}
+
+p, a, li {
+  font-size: 18px;
+}
+
+h1 {
+  text-align: center;
+}
+
+
+.container {
+  width: 50%;
+  margin: 20px auto;
+  box-sizing: border-box;
+}
+
+.box {
+  border: 3px solid var(--blue);
+  background-color: var(--white);
+  padding: 10px 10px;
+  margin: 20px 0;
+  box-sizing: border-box;
+}
+
+.title h1 {
+  margin: 10px;
+}
+
+.game-grid {
+  border: 3px solid var(--dark3);
+  margin: 10px auto;
+  height: 25vw;
+  width: 25vw;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.single-grid {
+  height: 5vw;
+  width: 5vw;
+  box-sizing: border-box;
+  border: 3px solid var(--dark3);
+  user-select: none;
+
+}
+
+
+
+#drag-box {
+  display: flex;
+  flex-wrap: wrap;
+  height: 10vh;
+  width: 100%;
+  gap: 10px;
+}
+
+.drag {
+  /* box-sizing: border-box; */
+  border: 3px solid var(--tan);
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--dark6);
+  user-select: none;
+
+  /* padding: calc(2.5vw - 8px) ; */
+}
+
+.d12 {
+  height: 5vw;
+  width: 10vw;
+}
+
+.d21 {
+  height: 10vw;
+  width: 5vw;
+}
+
+.drag-box-square {
+  height: 5vw;
+  width: 5vw;
+  box-sizing: border-box;
+  border: 3px solid var(--tan);
+}
+
+.drag-box-square p {
+  text-align: center;
+}
