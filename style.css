@@ -18,11 +18,11 @@ body {
 
 h1, h2, h3, h4, h5, h6, p, a, li {
   color: var(--black);
-  font-family: Tahoma, sans-serif;
+  font-family: Comic Sans, sans-serif;
 }
 
 p, a, li {
-  font-size: 18px;
+  font-size: 24px;
 }
 
 h1 {
@@ -31,7 +31,7 @@ h1 {
 
 
 .container {
-  width: 50%;
+  width: 800px;
   margin: 20px auto;
   box-sizing: border-box;
 }
@@ -87,7 +87,7 @@ h1 {
   box-sizing: border-box;
   border: 3px solid var(--blue);
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
 
   background-color: var(--dark6);
   user-select: none;
@@ -96,33 +96,40 @@ h1 {
 }
 
 .d12 {
+  flex-flow: row;
   height: calc(5vw - 6px);
   width: calc(10vw - 6px);
 }
 
 .d21 {
+  flex-flow: column;
   height: calc(10vw - 6px);
   width: calc(5vw - 6px);
 }
 
 .d13 {
+  flex-flow: row;
   height: calc(5vw - 6px);
   width: calc(15vw - 6px);
 }
 
 .d31 {
+  flex-flow: column;
   height: calc(15vw - 6px);
   width: calc(5vw - 6px);
 }
 
 .drag-box-square {
-  height: calc(5vw - 6px);
-  width: calc(5vw - 6px);
+  box-sizing: border-box;
+  height: calc(5vw - 12px);
+  width: calc(5vw - 12px);
   user-select: none;
 }
 
 .drag-box-square p {
   text-align: center;
+  margin: calc(50% - 12px - 2px) 0;
+  padding: 0;
 }
 
 .footer {

@@ -172,6 +172,10 @@ function setpiece(e) {
       }
 
 
+    // check if win
+
+    
+
     }
     else {
       // in box
