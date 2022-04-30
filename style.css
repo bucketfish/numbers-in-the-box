@@ -49,7 +49,7 @@ h1 {
 }
 
 .game-grid {
-  border: 3px solid var(--dark3);
+  border: 3px solid var(--dark4);
   margin: 10px auto;
   height: 25vw;
   width: 25vw;
@@ -63,7 +63,7 @@ h1 {
   height: 5vw;
   width: 5vw;
   box-sizing: border-box;
-  border: 3px solid var(--dark3);
+  border: 3px solid var(--dark4);
   user-select: none;
   /* pointer-events: none; */
 }
@@ -102,6 +102,16 @@ h1 {
 
 .d21 {
   height: calc(10vw - 6px);
+  width: calc(5vw - 6px);
+}
+
+.d13 {
+  height: calc(5vw - 6px);
+  width: calc(15vw - 6px);
+}
+
+.d31 {
+  height: calc(15vw - 6px);
   width: calc(5vw - 6px);
 }
 
