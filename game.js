@@ -5,6 +5,14 @@ var cols = 5;
 var selected = false;
 var curpiece = null;
 
+var board = [
+  [null, null, null, null, null],
+  [null, null, null, null, null],
+  [null, null, null, null, null],
+  [null, null, null, null, null],
+  [null, null, null, null, null]
+]
+
 var dragbox = document.getElementById("drag-box");
 dragbox.addEventListener("mouseenter", mouseenter, false);
 var gamegrid = document.getElementById("game-grid");
@@ -31,8 +39,56 @@ function setpiece(e) {
   if (e.type == 'mousedown') {
     selected = true;
     curpiece = e.target.closest('.drag');
+
+    if (curpiece) {
+      var col = curpiece.parentElement.id.substring(1, 2);
+      var row = curpiece.parentElement.id.substring(2, 3);
+
+      // col + height, row + width
+      var pheight = parseInt(curpiece.id.substring(2, 3));
+      var pwidth = parseInt(curpiece.id.substring(3, 4));
+
+
+      if (curpiece.parentElement.id.substring(0, 1) == "s") {
+        col = parseInt(col);
+        row = parseInt(row);
+        for (var i = 0; i < pheight; i++){
+          for (var j = 0; j < pwidth; j++){
+            board[col + i][row + j] = null;
+          }
+        }
+
+      }
+    }
+
   } else /* mouseup */ {
     selected = false;
+
+    if (curpiece.parentElement.id.substring(0, 1) == "s"){
+      var col = curpiece.parentElement.id.substring(1, 2);
+      var row = curpiece.parentElement.id.substring(2, 3);
+
+      // col + height, row + width
+      var pheight = parseInt(curpiece.id.substring(2, 3));
+      var pwidth = parseInt(curpiece.id.substring(3, 4));
+
+      if (row && col) {
+        col = parseInt(col);
+        row = parseInt(row);
+        for (var i = 0; i < pheight; i++){
+          for (var j = 0; j < pwidth; j++){
+            board[col + i][row + j] = curpiece.id.substring(4 + i + j, 5 + i + j);
+          }
+        }
+
+      }
+
+      console.log(board);
+
+    }
+    else {
+      // in box
+    }
     curpiece = null;
   }
 }
@@ -51,9 +107,7 @@ function mouseenter(e) {
   } else if (row && col) {
     var pheight = curpiece.id.substring(2, 3);
     var pwidth = curpiece.id.substring(3, 4);
-    console.log(pheight, pwidth);
-    console.log(col, row, 'a');
-    console.log(col + pwidth, row + pheight);
+
     if ((parseInt(col) + parseInt(pheight) > 5) || (parseInt(row) + parseInt(pwidth) > 5)){
 
     }else{

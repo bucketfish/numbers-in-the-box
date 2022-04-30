@@ -58,12 +58,12 @@ h1 {
 }
 
 .single-grid {
+  z-index: 0;
   height: 5vw;
   width: 5vw;
   box-sizing: border-box;
   border: 3px solid var(--dark3);
   user-select: none;
-
 }
 
 
@@ -71,16 +71,20 @@ h1 {
 #drag-box {
   display: flex;
   flex-wrap: wrap;
-  height: 10vh;
+  min-height: 10vh;
   width: 100%;
   gap: 10px;
+  padding: 10px;
+  /* flex-basis: content; */
 }
 
 .drag {
-  /* box-sizing: border-box; */
+  z-index: 10;
+  box-sizing: border-box;
   border: 3px solid var(--tan);
   display: flex;
   flex-wrap: wrap;
+
   background-color: var(--dark6);
   user-select: none;
 
@@ -98,12 +102,16 @@ h1 {
 }
 
 .drag-box-square {
-  height: 5vw;
-  width: 5vw;
-  box-sizing: border-box;
-  border: 3px solid var(--tan);
+  height: calc(5vw - 3px);
+  width: calc(5vw - 3px);
+  user-select: none;
+  /* border: 3px solid var(--tan); */
 }
 
 .drag-box-square p {
   text-align: center;
+}
+
+.footer {
+  clear: both;
 }
