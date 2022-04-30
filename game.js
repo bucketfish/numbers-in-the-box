@@ -108,9 +108,17 @@ function mouseenter(e) {
     var pheight = curpiece.id.substring(2, 3);
     var pwidth = curpiece.id.substring(3, 4);
 
-    if ((parseInt(col) + parseInt(pheight) > 5) || (parseInt(row) + parseInt(pwidth) > 5)){
+    var canplace = true;
 
-    }else{
+    for (var i = 0; i < parseInt(pheight); i++){
+      for (var j = 0; j < parseInt(pwidth); j++){
+        if (board[parseInt(col) + i][parseInt(row) + j] != null){
+          canplace = false;
+        }
+      }
+    }
+
+    if (canplace && (parseInt(col) + parseInt(pheight) <= 5) && (parseInt(row) + parseInt(pwidth) <= 5)){
       movepiece(e.target);
     }
   }
