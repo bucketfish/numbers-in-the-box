@@ -21,6 +21,8 @@
   --8: #ADD8FF;
   --9: #BDC4F4;
   --0: #CCAFE9;
+
+  --px: 60px;
 }
 
 body {
@@ -33,13 +35,24 @@ h1, h2, h3, h4, h5, h6, p, a, li {
 }
 
 p, a, li {
-  font-size: 24px;
+  font-size: 16px;
+}
+
+a {
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--tan);
 }
 
 h1 {
   text-align: center;
 }
 
+.footer {
+  text-align: center;
+}
 
 .container {
   width: 800px;
@@ -63,17 +76,18 @@ h1 {
 .game-grid {
   border: 3px solid var(--dark4);
   margin: 10px auto;
-  height: 25vw;
-  width: 25vw;
+  height: calc(var(--px) * 5);
+  width: calc(var(--px) * 5);
   display: flex;
   flex-wrap: wrap;
   /* pointer-events: none; */
 }
 
 .single-grid {
+
   z-index: 10;
-  height: 5vw;
-  width: 5vw;
+  height: var(--px);
+  width: var(--px);
   box-sizing: border-box;
   border: 3px solid var(--dark4);
   user-select: none;
@@ -94,6 +108,7 @@ h1 {
 
 .drag {
   /* position: relative; z-index: 99999; */
+
   pointer-events: auto;
 
   box-sizing: border-box;
@@ -104,49 +119,49 @@ h1 {
   background-color: var(--dark6);
   user-select: none;
 
-  /* padding: calc(2.5vw - 8px) ; */
 }
 
 .d12 {
   flex-flow: row;
-  height: calc(5vw - 6px);
-  width: calc(10vw - 6px);
+  height: calc(var(--px) - 6px);
+  width: calc(2 * var(--px) - 6px);
 }
 
 .d21 {
   flex-flow: column;
-  height: calc(10vw - 6px);
-  width: calc(5vw - 6px);
+  height: calc(2 * var(--px) - 6px);
+  width: calc(var(--px) - 6px);
 }
 
 .d13 {
   flex-flow: row;
-  height: calc(5vw - 6px);
-  width: calc(15vw - 6px);
+  height: calc(var(--px) - 6px);
+  width: calc(3 * var(--px) - 6px);
 }
 
 .d31 {
   flex-flow: column;
-  height: calc(15vw - 6px);
-  width: calc(5vw - 6px);
+  height: calc(3 * var(--px) - 6px);
+  width: calc(var(--px) - 6px);
 }
 
 .d11 {
   flex-flow: column;
-  height: calc(5vw - 6px);
-  width: calc(5vw - 6px);
+  height: calc(var(--px) - 6px);
+  width: calc(var(--px) - 6px);
 }
 
 
 .drag-box-square {
   box-sizing: border-box;
-  height: calc(5vw - 12px);
-  width: calc(5vw - 12px);
+  height: calc(var(--px) - 12px);
+  width: calc(var(--px) - 12px);
   user-select: none;
 
 }
 
 .drag-box-square p {
+  font-size: 24px;
   text-align: center;
   margin: calc(50% - 12px - 2px) 0;
   padding: 0;
