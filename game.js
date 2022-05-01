@@ -89,7 +89,7 @@ for (var i = 0; i < 5; i++){
 for (var i = 0; i < 5; i++){
 	for (var j = 0; j < 5; j++){
 		rangen[i][j] = choose(nums);
-		if (rangen[j][i]) rangen[i][j] = rangen[j][i];
+		if (rangen[j][i] != null) rangen[i][j] = rangen[j][i];
 	}
 }
 console.log(cursplit);
