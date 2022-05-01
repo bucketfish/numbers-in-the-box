@@ -8,14 +8,49 @@
   </head>
   <body>
     <div id="confetti-container">
+    </div>
+
+    <div id="overlay">
+
+      <div id="instructions">
+        <h1>how to play!</h1>
+        <p>welcome to numbers in the box :)</p>
+        <ol>
+          <li>drag and drop pieces onto the board.</li>
+          <br/>
+          <li>your goal is to make the board read the <em>same vertically and horizontally</em> for each line. (or have a line of symmetry diagonally from top left to bottom right.)<br/><br/>for example, this is a winning board:<br/>
+          1 2 3<br/>
+          2 4 5<br/>
+          3 5 6</li>
+          <br/>
+          <li>good luck!</li>
+        </ol>
+
+
+      </div>
+
+      <div class="overlay-toggle" onclick="toggleq()">
+      </div>
+
 
     </div>
 
     <div class="container">
         <div class="title box">
-          <h1 id="title">numbers in the box ❤️</h1>
-          <p id="heehee">(to the tune of fingers in his ass)</p>
+          <div class="title-small blank">
+          </div>
+
+          <div class="title-text">
+            <h1 id="title">numbers in the box ❤️</h1>
+            <p id="heehee">(to the tune of fingers in his ass)</p>
+          </div>
+
+          <div id="question" class="title-small question" onclick="toggleq()">
+            <p>?</p>
+          </div>
+
         </div>
+
 
         <div class="game-box box">
           <div id="grid-snap">

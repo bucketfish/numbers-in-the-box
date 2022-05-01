@@ -274,9 +274,7 @@ function setpiece(e) {
       }
 
     }
-    else {
-      // in box
-    }
+
     curpiece = null;
 
     // check if win
@@ -351,4 +349,11 @@ function movepiece(e){
 	try { e.appendChild(curpiece);} catch(err){
 		// console.log(err)
 	} // add piece to new position
+}
+
+
+var quest = document.getElementById("overlay")
+
+function toggleq(){
+  quest.classList.toggle("show");
 }

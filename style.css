@@ -25,6 +25,10 @@
   --px: 60px;
 }
 
+html {
+  padding: 0;
+  margin: 0;
+}
 body {
   background-color: var(--dark3);
   background-image: linear-gradient(172deg, var(--white) 10%, var(--dark3) 70%);
@@ -41,7 +45,7 @@ h1, h2, h3, h4, h5, h6, p, a, li {
 }
 
 p, a, li {
-  font-size: 16px;
+  font-size: 20px;
 }
 
 a {
@@ -91,7 +95,6 @@ h1 {
 
 .single-grid {
 
-  z-index: 10;
   height: var(--px);
   width: var(--px);
   box-sizing: border-box;
@@ -225,7 +228,7 @@ div[data-val='0'] {
   margin: 5px auto;
   margin-top: 0;
   background-color: var(--dark0);
-  width: 40%;
+  width: 80%;
   transition: background-color 0.5s;
   border-radius: 20px;
 }
@@ -296,4 +299,90 @@ div[data-val='0'] {
  50% { transform: rotateZ(15deg) rotateY(720deg) translate(5vw,60vh); }
  75% { transform: rotateZ(5deg) rotateY(1080deg) translate(-10vw,80vh); }
  100% { transform: rotateZ(15deg) rotateY(1440deg) translate(10vw,110vh); }
+}
+
+
+.title {
+  display: flex;
+  justify-content: space-around;
+}
+
+.title-text {
+
+}
+
+.title-small {
+  width: 25px;
+  padding: 10px;
+}
+
+.question {
+  margin-top: 5px;
+  width: 25px;
+  height: 25px;
+  background-color: var(--white);
+  color: var(--dark4);
+  text-align: center;
+  padding: 10px;
+  border-radius: 30px;
+  border: 6px var(--dark4) solid;
+}
+
+.question p {
+  margin: 0;
+  font-weight: 900;
+  font-size: 24px;
+}
+
+.question:hover {
+  background-color: var(--dark4);
+  color: var(--white);
+  cursor: pointer;
+}
+
+#overlay {
+  display: block;
+  opacity: 100%;
+
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  /* margin: 0; */
+  box-sizing: border-box;
+  background-color: #b0b3b2cc;
+
+  opacity: 0%;
+  display: none;
+
+  /* pointer-events: none; */
+}
+
+#overlay.show {
+  opacity: 100%;
+  display: block;
+}
+
+.overlay-toggle {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  pointer-events: auto;
+}
+
+
+#instructions {
+  width: 45%;
+  padding: 25px;
+  margin: 80px auto;
+  border: 12px solid var(--dark3);
+  background-color: var(--dark6);
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  pointer-events: auto;
 }
