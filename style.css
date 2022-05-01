@@ -26,12 +26,13 @@
 }
 
 body {
-  background-color: var(--dark5);
+  background-color: var(--dark3);
+  background-image: linear-gradient(172deg, var(--white) 10%, var(--dark3) 70%);
 }
 
 h1, h2, h3, h4, h5, h6, p, a, li {
   color: var(--black);
-  font-family: Comic Sans, sans-serif;
+  font-family: sans-serif;
 }
 
 p, a, li {
