@@ -10,6 +10,17 @@
   --blue: #555568;
   --tan: #a0a08b;
   --white: #e9efec;
+
+  --1: #FFCACA;
+  --2: #FFDCC6;
+  --3: #FFEDC1;
+  --4: #FEFFB8;
+  --5: #E1FFC2;
+  --6: #C4FFCB;
+  --7: #B9ECE5;
+  --8: #ADD8FF;
+  --9: #BDC4F4;
+  --0: #CCAFE9;
 }
 
 body {
@@ -141,4 +152,45 @@ h1 {
 
 .footer {
   clear: both;
+}
+
+
+div[data-val='1'] {
+  background-color: var(--1);
+}
+
+div[data-val='2'] {
+  background-color: var(--2);
+}
+
+div[data-val='3'] {
+  background-color: var(--3);
+}
+
+div[data-val='4'] {
+  background-color: var(--4);
+}
+
+div[data-val='5'] {
+  background-color: var(--5);
+}
+
+div[data-val='6'] {
+  background-color: var(--6);
+}
+
+div[data-val='7'] {
+  background-color: var(--7);
+}
+
+div[data-val='8'] {
+  background-color: var(--8);
+}
+
+div[data-val='9'] {
+  background-color: var(--9);
+}
+
+div[data-val='0'] {
+  background-color: var(--0);
 }

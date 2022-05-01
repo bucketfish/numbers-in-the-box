@@ -1,32 +1,3 @@
-// https://stackoverflow.com/questions/424292/seedable-javascript-random-number-generator
-function RNG(seed) {
-  // LCG using GCC's constants
-  this.m = 0x80000000; // 2**31;
-  this.a = 1103515245;
-  this.c = 12345;
-
-  this.state = seed ? seed : Math.floor(Math.random() * (this.m - 1));
-}
-RNG.prototype.nextInt = function() {
-  this.state = (this.a * this.state + this.c) % this.m;
-  return this.state;
-}
-RNG.prototype.nextFloat = function() {
-  // returns in range [0,1]
-  return this.nextInt() / (this.m - 1);
-}
-RNG.prototype.nextRange = function(start, end) {
-  // returns in range [start, end): including start, excluding end
-  // can't modulu nextInt because of weak randomness in lower bits
-  var rangeSize = end - start;
-  var randomUnder1 = this.nextInt() / this.m;
-  return start + Math.floor(randomUnder1 * rangeSize);
-}
-RNG.prototype.choice = function(array) {
-  return array[this.nextRange(0, array.length)];
-}
-
-/* ^ rng functions */
 
 function choose(choices) {
   var index = Math.floor(Math.random() * choices.length);
@@ -74,7 +45,7 @@ var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
 var today = new Date()
 var day = " " + today.getDate() + " " + today.getMonth() + " " + today.getFullYear()
-var rng = new RNG(day);
+
 
 var count = 0;
 for (var i = 0; i < 5; i++){
@@ -218,6 +189,7 @@ for (var i = 0; i < count; i++){
   for (var j = 0; j < pieces[i].values.length; j++){
     var box = document.createElement("div");
     box.classList.add("drag-box-square");
+    box.dataset.val = pieces[i].values[j];
     box.innerHTML = "<p>" + pieces[i].values[j] + "</p>";
     piece.appendChild(box);
   }
