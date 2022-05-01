@@ -278,6 +278,8 @@ function setpiece(e) {
 
     if (win) {
       title.innerHTML = "you win!!!!! 🎉🎉"
+
+      document.getElementById("confetti-container").innerHTML = '<div class="confetti"></div><div class="confetti"></div><div class="confetti"></div><div class="confetti"></div><div class="confetti"></div><div class="confetti"></div><div class="confetti"></div><div class="confetti"></div><div class="confetti"></div><div class="confetti"></div>'
     }
 
   }
