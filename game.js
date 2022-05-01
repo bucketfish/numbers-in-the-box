@@ -346,9 +346,9 @@ function mouseenter(e) {
 
 function movepiece(e){
   // remove piece at old position
-	try { curpiece.parentNode.removeChild(curpiece);} catch(err){ console.log(err)}
+	try { curpiece.parentNode.removeChild(curpiece);} catch(err){ /*console.log(err)*/}
 
 	try { e.appendChild(curpiece);} catch(err){
-		console.log(err)
+		// console.log(err)
 	} // add piece to new position
 }
