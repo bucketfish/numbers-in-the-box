@@ -105,9 +105,8 @@ for (var i = 0; i < 5; i++){
 
 // and then the solution numbers
 for (var i = 0; i < 5; i++){
-	for (var j = 0; j < 5; j++){
-		rangen[i][j] = choose(nums);
-		if (rangen[j][i] != null) rangen[i][j] = rangen[j][i];
+	for (var j = i; j < 5; j++){
+		rangen[j][i] = rangen[i][j] = choose(nums);
 	}
 }
 console.log(cursplit);
